@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events Calendar — {{ biz.name }}</title>
+<meta name="description" content="See where the {{ biz.name }} trailer will be, and which dates are open for weddings, catering, and events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page-events">
+
+<header class="nav">
+  <a class="nav-brand" href="/">SWEET<span>BEAN</span></a>
+  <nav class="nav-links">
+    <a href="/#menu">Menu</a>
+    <a href="/events">Events</a>
+    <a href="/#reviews">Reviews</a>
+    <a href="/#visit">Visit</a>
+    <a class="nav-cta" href="{{ biz.phone_href }}">Book the trailer</a>
+  </nav>
+</header>
+
+<main class="cal-wrap">
+  <h1 class="section-title">Where's the <em>trailer?</em></h1>
+  <p class="section-lede">Tap a marked day to see where we'll be. Open dates are available for weddings, catering, and events — call {{ biz.phone }} to grab one.</p>
+
+  <div class="cal-header">
+    <a class="cal-nav" href="{{ prev_link }}" aria-label="Previous month">&larr;</a>
+    <h2>{{ month_name }} {{ year }}</h2>
+    <a class="cal-nav" href="{{ next_link }}" aria-label="Next month">&rarr;</a>
+  </div>
+
+  <div class="cal-legend">
+    <span><i class="dot dot-event"></i> Trailer on location</span>
+    <span><i class="dot dot-blocked"></i> Booked / unavailable</span>
+    <span><i class="dot dot-open"></i> Open for booking</span>
+  </div>
+
+  <table class="cal">
+    <thead>
+      <tr>
+        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for week in weeks %}
+      <tr>
+        {% for day in week %}
+        {% if day == 0 %}
+        <td class="cal-empty"></td>
+        {% else %}
+        {% set key = iso(day) %}
+        {% set ev = events.get(key) %}
+        <td class="cal-day {{ 'is-today' if key == today }} {{ 'is-blocked' if ev and ev.blocked }} {{ 'has-event' if ev and not ev.blocked }}">
+          <span class="cal-num">{{ day }}</span>
+          {% if ev and not ev.blocked %}
+          <div class="cal-event">
+            <strong>{{ ev.title }}</strong>
+            {% if ev.location %}<span>{{ ev.location }}</span>{% endif %}
+            {% if ev.time_text %}<span>{{ ev.time_text }}</span>{% endif %}
+          </div>
+          {% elif ev and ev.blocked %}
+          <span class="cal-badge">Booked</span>
+          {% endif %}
+        </td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <section class="request" id="request">
+    {% if sent %}
+    <div class="request-success">
+      <h3>Request sent! &#127877;</h3>
+      <p>Thanks &mdash; the Sweet Bean team will reach out soon. For anything urgent, call <a href="{{ biz.phone_href }}">{{ biz.phone }}</a>.</p>
+    </div>
+    {% else %}
+    <h2 class="section-title">Want the trailer at <em>your event?</em></h2>
+    <p class="section-lede">Weddings, parties, church events, company mornings &mdash; tell us the date and we'll get back to you.</p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}<p class="form-error">{{ messages[0] }}</p>{% endif %}
+    {% endwith %}
+    <form class="request-form" method="POST" action="/events/request">
+      <div class="field"><label>Your name *</label><input name="name" required></div>
+      <div class="field"><label>Email</label><input name="email" type="email" placeholder="you@email.com"></div>
+      <div class="field"><label>Phone</label><input name="phone" placeholder="(918) ___-____"></div>
+      <div class="field"><label>Event date</label><input name="day" type="date"></div>
+      <div class="field field-wide"><label>Tell us about it</label><textarea name="details" rows="4" placeholder="Type of event, location, how many people, what you'd like..."></textarea></div>
+      <button class="btn" type="submit">Send request</button>
+      <p class="form-note">* Add your name and either email or phone so we can reach you.</p>
+    </form>
+    {% endif %}
+  </section>
+</main>
+
+<footer class="footer">
+  <span class="footer-brand">SWEET<span>BEAN</span> CANTEEN</span>
+  <span>© {{ biz.name }}. All rights reserved.</span>
+  <span class="footer-credit">Site by Preston Scott Systems &middot; <a href="/admin" style="color:inherit;opacity:0.7;">Owner login</a></span>
+</footer>
+
+</body>
+</html>

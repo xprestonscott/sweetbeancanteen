@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ biz.name }} — Specialty Coffee in Chouteau, OK</title>
+<meta name="description" content="{{ biz.name }} — specialty coffees, pastries, and brunch in Chouteau, Oklahoma. Available for weddings, catering, and events. {{ biz.tagline }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav-brand" href="/">SWEET<span>BEAN</span></a>
+  <nav class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="/events">Events</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+    <a class="nav-cta" href="#book">Book the trailer</a>
+  </nav>
+</header>
+
+<!-- ============ SCROLL HERO ============ -->
+<section class="hero" id="heroTrack">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">Coffee &amp; Bistro &middot; Chouteau, OK</span>
+      <h1 class="hero-title">
+        <span class="t1">Sweet Bean</span>
+        <span class="t2">CANTEEN</span>
+      </h1>
+      <p class="hero-sub">{{ biz.tagline }}</p>
+      <div class="hero-actions">
+        <a class="btn" href="{{ biz.doordash }}" target="_blank" rel="noopener">Order on DoorDash</a>
+        <a class="btn btn-ghost" href="/events">Book the trailer</a>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-chip"><b>4.8&#9733;</b> on Google</span>
+        <span class="hero-chip">Weddings + Catering</span>
+        <span class="hero-chip">Brewed on wheels</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="sticker-stage">
+        <svg class="sticker" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" aria-label="Sweet Bean Canteen badge">
+          <circle cx="170" cy="170" r="160" fill="#A9D7E8" stroke="#1E1B18" stroke-width="7"/>
+          <circle cx="170" cy="170" r="140" fill="none" stroke="#FDF6EC" stroke-width="3" stroke-dasharray="4 9"/>
+          <g transform="translate(170 96)">
+            <path d="M-24 -14 L-20 22 Q-19 30 -11 30 L11 30 Q19 30 20 22 L24 -14 Z"
+                  fill="#FDF6EC" stroke="#1E1B18" stroke-width="4.5" stroke-linejoin="round"/>
+            <rect x="-28" y="-24" width="56" height="12" rx="6" fill="#1E1B18"/>
+            <path d="M-14 -34 C-18 -42 -12 -46 -14 -54" fill="none" stroke="#1E1B18" stroke-width="4" stroke-linecap="round"/>
+            <path d="M0 -36 C-4 -46 2 -50 0 -60" fill="none" stroke="#1E1B18" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 -34 C10 -42 16 -46 14 -54" fill="none" stroke="#1E1B18" stroke-width="4" stroke-linecap="round"/>
+            <path d="M-24 2 L24 2 L22 16 L-22 16 Z" fill="#5BA8C4" stroke="#1E1B18" stroke-width="3.5"/>
+          </g>
+          <text x="170" y="205" text-anchor="middle" font-family="Pacifico, cursive"
+                font-size="47" fill="#1E1B18">Sweet Bean</text>
+          <text x="170" y="245" text-anchor="middle" font-family="Jost, sans-serif" font-weight="700"
+                font-size="24" letter-spacing="9" fill="#FDF6EC" stroke="#1E1B18" stroke-width="0.8" paint-order="stroke fill">CANTEEN</text>
+          <text x="170" y="282" text-anchor="middle" font-family="Jost, sans-serif" font-weight="600"
+                font-size="13" letter-spacing="3.5" fill="#1E1B18">CHOUTEAU, OK</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" id="scrollHint">
+    <span>Scroll on down</span>
+    <div class="scroll-hint-bar"></div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE STRIP ============ -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-inner">
+    {% for i in range(4) %}
+    <span>FRESH BLENDS DAILY</span><i>●</i>
+    <span>CHOUTEAU, OK</span><i>●</i>
+    <span>WEDDINGS + CATERING</span><i>●</i>
+    <span>BREWED ON WHEELS</span><i>●</i>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- ============ WHY ============ -->
+<section class="why">
+  <h2 class="section-title">The biggest coffee menu <em>you'll find anywhere.</em></h2>
+  <p class="section-lede">Small-town trailer. Big-league espresso. Always creating new blends — if you haven't been in this week, you've already missed something.</p>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <h3>Always something new</h3>
+      <p>New blends and seasonal drinks drop constantly. Regulars know to check the board — and the Facebook page — before ordering the usual.</p>
+    </div>
+    <div class="why-card reveal">
+      <h3>More than coffee</h3>
+      <p>Pastries, croissant sandwiches, wraps, and brunch platters. Fruit teas made with real fruit for the non-coffee crowd.</p>
+    </div>
+    <div class="why-card reveal">
+      <h3>We come to you</h3>
+      <p>The trailer books weddings, events, and catering across the Chouteau–Pryor–Tulsa area. Check the calendar and grab your date.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <figure class="about-photo reveal">
+    <img src="{{ url_for('static', filename='img/photos/patio.jpg') }}"
+         alt="Friends gathered on the Sweet Bean Canteen patio in Chouteau" loading="lazy">
+    <figcaption>The patio on Main Street, Chouteau</figcaption>
+  </figure>
+  <div class="about-text reveal">
+    <h2 class="section-title">Coffee &amp; bistro. <em>Parked on Main.</em></h2>
+    <p>Sweet Bean Canteen is Chouteau's coffee spot — a full coffee and bistro window at 215 W Main, plus a trailer that hits farmers markets, weddings, and events across the area.</p>
+    <p>It's the kind of place where the patio fills up, the menu board changes weekly, and your drink comes with your name on the cup. Regulars know: check the board before you order the usual.</p>
+    <span class="about-fact">Est. Chouteau, OK</span>
+    <span class="about-fact">Open 6 days a week</span>
+    <span class="about-fact">Trailer books events</span>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu" id="menu">
+  <h2 class="section-title section-title-light">Choose your <em>brew</em></h2>
+  <div class="menu-grid">
+    {% for item in menu %}
+    <article class="menu-card reveal">
+      <span class="menu-tag">{{ item.tag }}</span>
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.desc }}</p>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="menu-note">Sizes 16oz &amp; 24oz · Full menu at the window</p>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <h2 class="section-title section-title-light">Fresh from the <em>trailer</em></h2>
+  <p class="section-lede">The drinks, the treats, the setup. Come see it in person.</p>
+  <div class="gallery-grid">
+    {% for photo in gallery %}
+    <figure class="gallery-item reveal">
+      <img src="{{ url_for('static', filename=photo.src) }}" alt="{{ photo.alt }}" loading="lazy">
+      {% if photo.cap %}<figcaption>{{ photo.cap }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  </div>
+</section>
+
+<!-- ============ EVENTS TEASER ============ -->
+<section class="events-teaser" id="book">
+  <div class="events-teaser-text reveal">
+    <h2 class="section-title">Find the trailer. <em>Or book it.</em></h2>
+    <p>See where we'll be parked on any given date — farmers markets, pop-ups, and private events. Open dates are up for grabs for weddings and catering.</p>
+    <a class="btn" href="/events">See the calendar</a>
+    <a class="btn btn-ghost" href="{{ biz.phone_href }}">Call {{ biz.phone }}</a>
+  </div>
+  <div class="events-teaser-list reveal">
+    {% for ev in events %}
+    <div class="event-row">
+      <span class="event-date">{{ ev.day[5:] }}</span>
+      <div>
+        <strong>{{ ev.title }}</strong>
+        <span>{{ ev.location }}{% if ev.time_text %} · {{ ev.time_text }}{% endif %}</span>
+      </div>
+    </div>
+    {% else %}
+    <div class="event-row"><div><strong>New dates coming soon</strong><span>Check back or request your own below</span></div></div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <h2 class="section-title">Word around <em>town</em></h2>
+  <p class="section-lede">4.8 stars on Google. Folks have opinions about the lattes.</p>
+  <div class="review-marquee">
+  <div class="review-row">
+    {% for r in reviews + reviews %}
+    <figure class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <blockquote>{{ r.text }}</blockquote>
+      <figcaption>— {{ r.name }}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="visit-info reveal">
+    <h2 class="section-title section-title-light">Come find <em>us</em></h2>
+    <p class="visit-addr">{{ biz.address }}</p>
+    <a class="visit-phone" href="{{ biz.phone_href }}">{{ biz.phone }}</a>
+    <div class="visit-social">
+      <a class="btn" href="{{ biz.doordash }}" target="_blank" rel="noopener">Order on DoorDash</a>
+      <a class="btn btn-ghost" href="{{ biz.facebook }}" target="_blank" rel="noopener">Follow on Facebook</a>
+    </div>
+    <table class="hours">
+      {% for day, hrs in biz.hours %}
+      <tr class="{{ 'closed' if hrs == 'Closed' }}"><td>{{ day }}</td><td>{{ hrs }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="visit-map reveal">
+    <iframe src="{{ biz.map_embed }}" title="Map to {{ biz.name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">SWEET<span>BEAN</span> CANTEEN</span>
+  <nav class="footer-links">
+    <a href="{{ biz.facebook }}" target="_blank" rel="noopener">Facebook</a>
+    <a href="{{ biz.doordash }}" target="_blank" rel="noopener">DoorDash</a>
+    <a href="{{ biz.phone_href }}">{{ biz.phone }}</a>
+  </nav>
+  <span>© {{ biz.name }}. All rights reserved.</span>
+  <span class="footer-credit">Site by Preston Scott Systems</span>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

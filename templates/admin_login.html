@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Login — {{ biz.name }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page-admin">
+<div class="admin-login">
+  <a class="admin-brand" href="/">SWEET<span>BEAN</span></a>
+  <h1>Owner Login</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}<p class="form-error">{{ messages[0] }}</p>{% endif %}
+  {% endwith %}
+  <form method="POST">
+    <div class="field"><label>Password</label><input name="password" type="password" autofocus required></div>
+    <button class="btn" type="submit">Log in</button>
+  </form>
+  <a class="admin-back" href="/">&larr; Back to site</a>
+</div>
+</body>
+</html>

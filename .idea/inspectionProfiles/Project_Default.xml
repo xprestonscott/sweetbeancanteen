@@ -1,0 +1,86 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="annotated-doc" />
+          <option value="annotated-types" />
+          <option value="anthropic" />
+          <option value="anyio" />
+          <option value="arrow" />
+          <option value="beautifulsoup4" />
+          <option value="binaryornot" />
+          <option value="certifi" />
+          <option value="cffi" />
+          <option value="chardet" />
+          <option value="charset-normalizer" />
+          <option value="click" />
+          <option value="colorama" />
+          <option value="cookiecutter" />
+          <option value="cryptography" />
+          <option value="curl_cffi" />
+          <option value="distro" />
+          <option value="docstring_parser" />
+          <option value="fastapi" />
+          <option value="flet" />
+          <option value="flet-cli" />
+          <option value="flet-desktop" />
+          <option value="flet-web" />
+          <option value="frozendict" />
+          <option value="h11" />
+          <option value="httpcore" />
+          <option value="httptools" />
+          <option value="httpx" />
+          <option value="idna" />
+          <option value="Jinja2" />
+          <option value="jiter" />
+          <option value="markdown-it-py" />
+          <option value="MarkupSafe" />
+          <option value="mdurl" />
+          <option value="msgpack" />
+          <option value="multitasking" />
+          <option value="numpy" />
+          <option value="oauthlib" />
+          <option value="packaging" />
+          <option value="pandas" />
+          <option value="peewee" />
+          <option value="platformdirs" />
+          <option value="protobuf" />
+          <option value="pycparser" />
+          <option value="pydantic" />
+          <option value="pydantic_core" />
+          <option value="Pygments" />
+          <option value="PyNaCl" />
+          <option value="pyotp" />
+          <option value="python-dateutil" />
+          <option value="python-dotenv" />
+          <option value="python-slugify" />
+          <option value="pytz" />
+          <option value="PyYAML" />
+          <option value="qrcode" />
+          <option value="repath" />
+          <option value="requests" />
+          <option value="rich" />
+          <option value="robin-stocks" />
+          <option value="schedule" />
+          <option value="six" />
+          <option value="sniffio" />
+          <option value="soupsieve" />
+          <option value="starlette" />
+          <option value="text-unidecode" />
+          <option value="typing-inspection" />
+          <option value="typing_extensions" />
+          <option value="tzdata" />
+          <option value="urllib3" />
+          <option value="uvicorn" />
+          <option value="watchdog" />
+          <option value="watchfiles" />
+          <option value="websockets" />
+          <option value="yfinance" />
+          <option value="gunicorn" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

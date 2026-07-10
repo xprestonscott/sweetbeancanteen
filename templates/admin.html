@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Dashboard — {{ biz.name }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page-admin">
+
+<header class="admin-nav">
+  <a class="admin-brand" href="/">SWEET<span>BEAN</span> <small>Owner Dashboard</small></a>
+  <div>
+    <a href="/" class="admin-link">View site</a>
+    <a href="/admin/logout" class="admin-link">Log out</a>
+  </div>
+</header>
+
+<main class="admin-wrap">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}<div class="admin-flash">{{ messages[0] }}</div>{% endif %}
+  {% endwith %}
+
+  <div class="admin-grid">
+    <!-- Add / schedule -->
+    <section class="admin-card">
+      <h2>Add an event or block a date</h2>
+      <p class="admin-hint">Add where the trailer will be, or check "block this date" to mark yourself unavailable. Changes show on the website instantly.</p>
+      <form method="POST" action="/admin/event/add" class="admin-form">
+        <label>Date</label>
+        <input name="day" type="date" value="{{ today }}" required>
+        <label>Title</label>
+        <input name="title" placeholder="Farmers Market, Private Wedding, etc.">
+        <label>Location</label>
+        <input name="location" placeholder="Main St, Chouteau">
+        <label>Time</label>
+        <input name="time_text" placeholder="8 AM - 1 PM">
+        <label class="admin-check"><input name="blocked" type="checkbox"> Block this date (unavailable for bookings)</label>
+        <button class="btn" type="submit">Save to calendar</button>
+      </form>
+    </section>
+
+    <!-- Upcoming events -->
+    <section class="admin-card">
+      <h2>Scheduled ({{ events|length }})</h2>
+      {% if events %}
+      <ul class="admin-list">
+        {% for ev in events %}
+        <li>
+          <div>
+            <strong>{{ ev.day }}</strong>
+            {% if ev.blocked %}<span class="tag tag-blocked">Blocked</span>{% endif %}
+            <span>{{ ev.title }}{% if ev.location %} · {{ ev.location }}{% endif %}{% if ev.time_text %} · {{ ev.time_text }}{% endif %}</span>
+          </div>
+          <form method="POST" action="/admin/event/{{ ev.id }}/delete" onsubmit="return confirm('Remove this?');">
+            <button class="admin-del" type="submit">&times;</button>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="admin-empty">Nothing scheduled yet.</p>
+      {% endif %}
+    </section>
+  </div>
+
+  <!-- Requests inbox -->
+  <section class="admin-card admin-card-full">
+    <h2>Event requests ({{ requests|length }})</h2>
+    {% if requests %}
+    <table class="admin-table">
+      <thead><tr><th>When</th><th>Name</th><th>Contact</th><th>Date</th><th>Details</th></tr></thead>
+      <tbody>
+        {% for r in requests %}
+        <tr>
+          <td>{{ r.created }}</td>
+          <td>{{ r.name }}</td>
+          <td>
+            {% if r.email %}<a href="mailto:{{ r.email }}">{{ r.email }}</a><br>{% endif %}
+            {% if r.phone %}<a href="tel:{{ r.phone }}">{{ r.phone }}</a>{% endif %}
+          </td>
+          <td>{{ r.day or '—' }}</td>
+          <td>{{ r.details }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="admin-empty">No requests yet. They'll show up here (and in the owner's email) when customers submit the form.</p>
+    {% endif %}
+  </section>
+</main>
+</body>
+</html>
