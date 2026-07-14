@@ -37,7 +37,7 @@ def login_required(f):
 # ---------------------------------------------------------------
 BUSINESS = {
     "name": "Sweet Bean Canteen",
-    "tagline": "Specialty coffee, brunch & a trailer that travels — right off Main Street.",
+    "tagline": "Specialty coffee, brunch & Sweet Bean Canteen Mobile — right off Main Street.",
     "address": "215 W Main St, Chouteau, OK 74337",
     "phone": "(918) 803-3043",
     "phone_href": "tel:+19188033043",

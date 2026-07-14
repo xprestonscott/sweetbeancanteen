@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Events Calendar — {{ biz.name }}</title>
-<meta name="description" content="See where the {{ biz.name }} trailer will be, and which dates are open for weddings, catering, and events.">
+<meta name="description" content="See where Sweet Bean Canteen Mobile will be, and which dates are open for weddings, catering, and events.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,13 +19,19 @@
     <a href="/events">Events</a>
     <a href="/#reviews">Reviews</a>
     <a href="/#visit">Visit</a>
-    <a class="nav-cta" href="{{ biz.phone_href }}">Book the trailer</a>
+    <a class="nav-cta" href="{{ biz.phone_href }}">Book the Mobile</a>
   </nav>
 </header>
 
 <main class="cal-wrap">
-  <h1 class="section-title">Where's the <em>trailer?</em></h1>
+  <h1 class="section-title">Where's the <em>Mobile?</em></h1>
   <p class="section-lede">Tap a marked day to see where we'll be. Open dates are available for weddings, catering, and events — call {{ biz.phone }} to grab one.</p>
+
+  <figure class="events-hero-photo">
+    <img src="{{ url_for('static', filename='img/photos/mobile-canteen.jpg') }}"
+         alt="Sweet Bean Canteen Mobile — book it for weddings, catering, and events" loading="lazy">
+    <figcaption>Sweet Bean Canteen Mobile &middot; Chouteau, OK</figcaption>
+  </figure>
 
   <div class="cal-header">
     <a class="cal-nav" href="{{ prev_link }}" aria-label="Previous month">&larr;</a>
@@ -34,7 +40,7 @@
   </div>
 
   <div class="cal-legend">
-    <span><i class="dot dot-event"></i> Trailer on location</span>
+    <span><i class="dot dot-event"></i> Mobile on location</span>
     <span><i class="dot dot-blocked"></i> Booked / unavailable</span>
     <span><i class="dot dot-open"></i> Open for booking</span>
   </div>
@@ -80,7 +86,7 @@
       <p>Thanks &mdash; the Sweet Bean team will reach out soon. For anything urgent, call <a href="{{ biz.phone_href }}">{{ biz.phone }}</a>.</p>
     </div>
     {% else %}
-    <h2 class="section-title">Want the trailer at <em>your event?</em></h2>
+    <h2 class="section-title">Want the Mobile at <em>your event?</em></h2>
     <p class="section-lede">Weddings, parties, church events, company mornings &mdash; tell us the date and we'll get back to you.</p>
     {% with messages = get_flashed_messages() %}
       {% if messages %}<p class="form-error">{{ messages[0] }}</p>{% endif %}

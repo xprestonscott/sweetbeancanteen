@@ -20,7 +20,7 @@
     <a href="/events">Events</a>
     <a href="#reviews">Reviews</a>
     <a href="#visit">Visit</a>
-    <a class="nav-cta" href="#book">Book the trailer</a>
+    <a class="nav-cta" href="#book">Book the Mobile</a>
   </nav>
 </header>
 
@@ -36,11 +36,11 @@
       <p class="hero-sub">{{ biz.tagline }}</p>
       <div class="hero-actions">
         <a class="btn" href="{{ biz.doordash }}" target="_blank" rel="noopener">Order on DoorDash</a>
-        <a class="btn btn-ghost" href="/events">Book the trailer</a>
+        <a class="btn btn-ghost" href="/events">Book the Mobile</a>
       </div>
       <div class="hero-badges">
         <span class="hero-chip"><b>4.8&#9733;</b> on Google</span>
-        <span class="hero-chip">Weddings + Catering</span>
+        <span class="hero-chip">Sweet Bean Mobile</span>
         <span class="hero-chip">Brewed on wheels</span>
       </div>
     </div>
@@ -91,7 +91,7 @@
 <!-- ============ WHY ============ -->
 <section class="why">
   <h2 class="section-title">The biggest coffee menu <em>you'll find anywhere.</em></h2>
-  <p class="section-lede">Small-town trailer. Big-league espresso. Always creating new blends — if you haven't been in this week, you've already missed something.</p>
+  <p class="section-lede">Small-town canteen. Big-league espresso. Always creating new blends — if you haven't been in this week, you've already missed something.</p>
   <div class="why-grid">
     <div class="why-card reveal">
       <h3>Always something new</h3>
@@ -103,7 +103,7 @@
     </div>
     <div class="why-card reveal">
       <h3>We come to you</h3>
-      <p>The trailer books weddings, events, and catering across the Chouteau–Pryor–Tulsa area. Check the calendar and grab your date.</p>
+      <p>Sweet Bean Canteen Mobile books weddings, events, and catering across the Chouteau–Pryor–Tulsa area. Check the calendar and grab your date.</p>
     </div>
   </div>
 </section>
@@ -111,17 +111,17 @@
 <!-- ============ ABOUT ============ -->
 <section class="about" id="about">
   <figure class="about-photo reveal">
-    <img src="{{ url_for('static', filename='img/photos/patio.jpg') }}"
-         alt="Friends gathered on the Sweet Bean Canteen patio in Chouteau" loading="lazy">
-    <figcaption>The patio on Main Street, Chouteau</figcaption>
+    <img src="{{ url_for('static', filename='img/photos/outdoor-seating.jpg') }}"
+         alt="Outdoor seating at Sweet Bean Canteen in Chouteau" loading="lazy">
+    <figcaption>Outdoor seating on Main Street, Chouteau</figcaption>
   </figure>
   <div class="about-text reveal">
     <h2 class="section-title">Coffee &amp; bistro. <em>Parked on Main.</em></h2>
-    <p>Sweet Bean Canteen is Chouteau's coffee spot — a full coffee and bistro window at 215 W Main, plus a trailer that hits farmers markets, weddings, and events across the area.</p>
+    <p>Sweet Bean Canteen is Chouteau's coffee spot — a full coffee and bistro window at 215 W Main, plus Sweet Bean Canteen Mobile — the canteen on wheels that hits farmers markets, weddings, and events across the area.</p>
     <p>It's the kind of place where the patio fills up, the menu board changes weekly, and your drink comes with your name on the cup. Regulars know: check the board before you order the usual.</p>
     <span class="about-fact">Est. Chouteau, OK</span>
     <span class="about-fact">Open 6 days a week</span>
-    <span class="about-fact">Trailer books events</span>
+    <span class="about-fact">Mobile books events</span>
   </div>
 </section>
 
@@ -142,7 +142,7 @@
 
 <!-- ============ GALLERY ============ -->
 <section class="gallery" id="gallery">
-  <h2 class="section-title section-title-light">Fresh from the <em>trailer</em></h2>
+  <h2 class="section-title section-title-light">Fresh from the <em>canteen</em></h2>
   <p class="section-lede">The drinks, the treats, the setup. Come see it in person.</p>
   <div class="gallery-grid">
     {% for photo in gallery %}
@@ -158,11 +158,17 @@
 <!-- ============ EVENTS TEASER ============ -->
 <section class="events-teaser" id="book">
   <div class="events-teaser-text reveal">
-    <h2 class="section-title">Find the trailer. <em>Or book it.</em></h2>
-    <p>See where we'll be parked on any given date — farmers markets, pop-ups, and private events. Open dates are up for grabs for weddings and catering.</p>
+    <h2 class="section-title">Find the Mobile. <em>Or book it.</em></h2>
+    <p>See where Sweet Bean Canteen Mobile will be parked on any given date — farmers markets, pop-ups, and private events. Open dates are up for grabs for weddings and catering.</p>
     <a class="btn" href="/events">See the calendar</a>
     <a class="btn btn-ghost" href="{{ biz.phone_href }}">Call {{ biz.phone }}</a>
   </div>
+  <div class="events-teaser-side">
+  <figure class="teaser-photo reveal">
+    <img src="{{ url_for('static', filename='img/photos/mobile-canteen.jpg') }}"
+         alt="Sweet Bean Canteen Mobile — the canteen on wheels" loading="lazy">
+    <figcaption>Sweet Bean Canteen Mobile</figcaption>
+  </figure>
   <div class="events-teaser-list reveal">
     {% for ev in events %}
     <div class="event-row">
@@ -175,6 +181,7 @@
     {% else %}
     <div class="event-row"><div><strong>New dates coming soon</strong><span>Check back or request your own below</span></div></div>
     {% endfor %}
+  </div>
   </div>
 </section>
 
