@@ -98,13 +98,13 @@ REVIEWS = [
 ]
 
 # ---------------------------------------------------------------
-# GALLERY (placeholders — save real photos from their Facebook page,
-# drop them in static/img/, and update the filenames below)
+# CUSTOMER FAVORITES (client-supplied drink features — swap the files
+# in static/img/favorites/ and update the captions below)
 # ---------------------------------------------------------------
 GALLERY = [
-    {"src": "img/photos/iced-mocha.jpg", "alt": "Iced mocha with chocolate drizzle from Sweet Bean Canteen", "cap": "The iced mocha, doing numbers"},
-    {"src": "img/photos/sherbet-float.jpg", "alt": "Rainbow sherbet float from Sweet Bean Canteen", "cap": "Sherbet float — summer special"},
-    {"src": "img/photos/croissant-sandwich.jpg", "alt": "Chicken salad croissant sandwich", "cap": "Croissant sandwiches, built to order"},
+    {"src": "img/favorites/pryor-strong-latte.jpg", "alt": "Pryor Strong Latte — espresso layered with creamy sweetness and chocolate drizzle, in memory of Cody Pryor", "cap": "Pryor Strong Latte"},
+    {"src": "img/favorites/grandmas-cookies-latte.jpg", "alt": "Grandma's Cookies iced macchiato latte with caramel drizzle", "cap": "Grandma's Cookies Iced Macchiato"},
+    {"src": "img/favorites/ms-bougee-latte.jpg", "alt": "Ms. Bougee Latte with cookie butter, cinnamon and chocolate drizzle", "cap": "Ms. Bougee Latte"},
 ]
 
 # ---------------------------------------------------------------
