@@ -38,7 +38,7 @@ def login_required(f):
 BUSINESS = {
     "name": "Sweet Bean Canteen",
     "tagline": "Specialty coffee, brunch & Sweet Bean Canteen Mobile — right off Main Street.",
-    "address": "215 W Main St, Chouteau, OK 74337",
+    "address": "217 W Main St, Chouteau, OK 74337",
     "phone": "(918) 803-3043",
     "phone_href": "tel:+19188033043",
     "hours": [
@@ -53,7 +53,7 @@ BUSINESS = {
     "facebook": "https://www.facebook.com/profile.php?id=100087205220380",
     "doordash": "https://www.doordash.com/store/sweet-bean-canteen-chouteau-34474227/",
     # Keyless Google Maps embed (no API key needed for this iframe style)
-    "map_embed": "https://maps.google.com/maps?q=215+W+Main+St,+Chouteau,+OK+74337&z=15&output=embed",
+    "map_embed": "https://maps.google.com/maps?q=217+W+Main+St,+Chouteau,+OK+74337&z=15&output=embed",
 }
 
 # ---------------------------------------------------------------
